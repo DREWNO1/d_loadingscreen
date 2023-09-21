@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
+
+:root {
+    --main-gradient: linear-gradient(to bottom, #fe7300 #fe014e)
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* border: 1px solid #aaaaaa; */
+}
+
+body {
+    overflow: hidden;
+    background-color: #111111;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Fuggles', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 100px;
+    fill: none;
+    stroke: url(#grad1)
+}
+
+.title {
+    stroke-dasharray: 700;
+    stroke-dashoffset: -700;
+    animation: dash 7s ease-in-out alternate infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: -700;
+  }
+  
+  5% {
+    stroke-dashoffset: -700;
+    transform: scale(1.2) rotate(2deg);
+  }
+  
+  80% {
+    stroke-dashoffset: 0;
+    transform: scale(1.0) rotate(-2deg);
+  }
+  
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.background::before {
+  content: "";
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  top: 15%;
+  left: 50%;
+  background-color: #1d1d1d;
+  border-radius: 50%;
+  transform: translateX(-50%) skew(0, -10deg);
+  animation: wave 7s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+.background::after {
+  content: "";
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  top: 75%;
+  left: 50%;
+  background-color: #111111;
+  border-radius: 50%;
+  transform: translateX(-50%) skew(0, -50deg);
+  animation: wave2 7s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes wave {
+  from {
+      transform: translateX(-50%) skew(0, -10deg);
+  }
+  to {
+      transform: translateX(-30%) skew(10deg, 0);
+}
+}
+
+@keyframes wave2 {
+  from {
+      transform: translateX(-50%) skew(0, 10deg);
+  }
+  to {
+      transform: translateX(-30%) skew(-10deg, 0);
+}
+}
